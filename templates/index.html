@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Chatbot</title>
+</head>
+<body>
+    <h2>Transformer Chatbot</h2>
+    <input id="user_input" type="text">
+    <button onclick="send()">Send</button>
+    <p id="response"></p>
+
+<script>
+function send() {
+    var msg = document.getElementById("user_input").value;
+    fetch("/get?msg=" + msg)
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("response").innerText = data;
+    });
+}
+</script>
+
+</body>
+</html>
